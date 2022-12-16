@@ -1,0 +1,27 @@
+#friend-list{
+    width: 300px;
+    padding-bottom: 10px;
+    border: 1px solid var(--color-border);
+}
+
+.friend-card {
+    display: flex;
+    margin-left: 20px;
+    padding: 10px 0px;
+}
+
+.friend-info {
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+#name{
+    font-size: 14px;
+    margin: 0px;
+}
+
+#occup{
+    font-size: 12px;
+    font-style: italic;
+    margin: 0px;
+}

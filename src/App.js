@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Routes, Route, useLocation } from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-function App() {
+import Login from './components/Login';
+import Register from './components/Register';
+import Home from './components/Home';
+import Profile from './components/Profile';
+
+import { clearMessage } from './redux/actions/message';
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (['/login', '/register'].includes(location.pathname)) {
+      dispatch(clearMessage());
+    }
+  }, [dispatch, location]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
     </div>
   );
-}
+};
 
 export default App;

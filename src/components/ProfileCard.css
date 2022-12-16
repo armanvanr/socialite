@@ -1,0 +1,31 @@
+#profileCard {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 15px 15px;
+    max-width: 275px;
+    margin: 0px 0px 10px 50px;
+}
+
+.profile-header {
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.user-ava {
+    text-align: center;
+}
+
+.user-name {
+    font-size: 18px;
+    padding: 10px 0px;
+}
+
+.profile-middle {
+    border-bottom: 1px solid var(--color-border);
+    padding: 10px 0px;
+}
+
+.profile-footer {
+    padding: 10px 0px;
+}
