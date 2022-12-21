@@ -3,16 +3,11 @@ import Navbar from './Navbar';
 import './Home.css';
 import UserProfileCard from './ProfileCard';
 import FriendList from './FriendList';
-import PostBox from './PostBox';
 import PostList from './PostList';
-import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 
-const Home = () => {
-    const { user: currentUser } = useSelector(state => state.auth);
-    if (!currentUser) {
-        return <Navigate to="/login" />
-    }
+
+const UsersProfile = () => {
+
     const posts = [
         {
             firstName: "Pai",
@@ -65,8 +60,6 @@ const Home = () => {
                 </div>
 
                 <div className='col-md-5 home-middle'>
-                    <PostBox />
-
                     <PostList data={posts} />
                 </div>
 
@@ -78,4 +71,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default UsersProfile;

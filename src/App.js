@@ -8,9 +8,9 @@ import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
-import Profile from './components/Profile';
 
 import { clearMessage } from './redux/actions/message';
+import UsersProfile from './components/UsersProfile';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<UsersProfile />} />
         </Routes>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import './Form.css';
+import './FormLoginRegister.css';
 import { login } from '../redux/actions/auth';
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
 
         dispatch(login(email, password))
             .then(() => {
-                navigate('/profile');
+                navigate('/home');
                 window.location.reload();
             })
             .catch(() => {
@@ -40,7 +40,7 @@ const Login = () => {
     };
 
     if (isLoggedIn) {
-        return <Navigate to="/profile" />;
+        return <Navigate to="/home" />;
     }
 
     return (
@@ -48,7 +48,7 @@ const Login = () => {
             <div className="col-md-12">
                 <div id="cardContainer" className="card card-container">
                     <div>
-                        <h3 style={{ textAlign: "center", color: "darkblue" }} >Socialidarity</h3>
+                        <img src="logo2.png" alt="" textAlign="center" width={180} />
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
                             <input
@@ -90,7 +90,7 @@ const Login = () => {
                                 <span>Log In</span>
                             </button>
                         </div>
-                        <div style={{ textAlign: "center", color: "blue" }} className="nav-item mt-3">
+                        <div style={{ color: "blue" }} className="nav-item mt-3">
                             <Link to={'/register'} className="nav-link">
                                 Not have an account? Sign Up
                             </Link>

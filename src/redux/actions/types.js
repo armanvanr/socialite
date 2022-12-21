@@ -6,3 +6,6 @@ export const LOGOUT = 'LOGOUT';
 
 export const SET_MESSAGE = 'SET_MESSAGE';
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
+
+export const CREATE_POST_SUCCESS = 'CREATE_POST_SUCCESS';
+export const CREATE_POST_FAIL = 'CREATE_POST_FAIL';
