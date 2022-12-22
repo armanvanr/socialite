@@ -2,6 +2,7 @@
     background-color: var(--color-background);
     display: flex;
     padding-top: 20px;
+    margin-top: 70px;
 }
 
 .avatar {
@@ -10,95 +11,4 @@
 
 .home-middle {
     margin: 0px 20px;
-
-}
-
-.post-box {
-    background-color: white;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-.input-form-group {
-    display: flex;
-    padding: 10px 10px;
-}
-
-.input-form-group>textarea {
-    height: 90px;
-    margin: 0px 10px;
-    border-radius: 10px;
-}
-
-.button-group {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#image-upload {
-    font-size: 25px;
-    /* color: green; */
-    background-color: white;
-}
-
-#post-card {
-    margin-bottom: 15px;
-    padding: 20px;
-    border-color: var(--color-border);
-}
-
-.post-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.clamp-lines.custom-class .clamp-lines__button {
-    background: none;
-    border: 0;
-    color: var(--color-link);
-    cursor: pointer;
-    padding: 0;
-}
-
-.clamp-lines.custom-class .clamp-lines__button:hover {
-    color: var(--color-link);
-}
-
-.card-img {
-    border-radius: 10px;
-    margin-right: 15px;
-}
-
-.post-more {
-    font-size: 20px;
-    margin-right: 10px;
-}
-
-.dropdown-button{
-    background-color: white;
-}
-
-.buttons {
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-evenly;
-}
-
-.icon-buttons {
-    font-size: 18px;
-}
-
-#icon-heart:hover {
-    color: #ff0e62;
-}
-
-#icon-chat:hover {
-    color: #1ec968;
-}
-
-#icon-save:hover {
-    color: #50b7f5;
 }

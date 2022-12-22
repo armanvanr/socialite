@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import './Form.css';
+import { Link, Navigate } from 'react-router-dom';
+import './FormLoginRegister.css';
 import { register } from '../redux/actions/auth';
 
 const Register = () => {
@@ -11,6 +11,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [success, setSuccess] = useState(false);
 
+    const { isLoggedIn } = useSelector(state => state.auth);
     const { message } = useSelector(state => state.message);
     const dispatch = useDispatch();
 
@@ -36,14 +37,19 @@ const Register = () => {
 
     const handleRegister = () => {
         dispatch(register(firstName, lastName, email, password))
-            .then(() => {
+            .then((res) => {
+
                 setSuccess(true);
+                console.log('FE success:', success)
             })
             .catch(() => {
                 setSuccess(false);
             });
     };
 
+    if (isLoggedIn) {
+        return <Navigate to="/home" />;
+    }
     return (
         <div className='signup'>
             <div className="col-md-12">
@@ -51,7 +57,7 @@ const Register = () => {
                     <div>
                         {!success && (
                             <div>
-                                <h3 style={{ textAlign: "center", color: "darkblue" }} >Socialidarity</h3>
+                                <img src="logo2.png" alt="" textAlign="center" width={180} />
                                 <div className="form-group">
                                     <label htmlFor="firstName">First Name</label>
                                     <input
@@ -113,7 +119,7 @@ const Register = () => {
                                 </div>
                             </div>
                         )}
-                        <div style={{ textAlign: "center", color: "blue" }} className="nav-item mt-3">
+                        <div style={{ color: "blue" }} className="nav-item mt-3">
                             <Link to={'/login'} className="nav-link">
                                 Already have an account? Log in
                             </Link>

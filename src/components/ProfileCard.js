@@ -1,13 +1,15 @@
 import React from "react";
 import Avatar from 'react-avatar';
+import { useSelector } from "react-redux";
 import './ProfileCard.css';
 
 const UserProfileCard = () => {
+    const { user: currentData } = useSelector(state => state.auth);
     return (
         <div id="profileCard" className='card'>
             <div className='profile-header'>
-                <Avatar name="Lewis Hardin" round={true} size="60px" className='user-ava' />
-                <h5 className="user-name">Lewis Hardin</h5>
+                <Avatar name={`${currentData.user.firstName} ${currentData.user.lastName}`} round={true} size="60px" className='user-ava' />
+                <h5 className="user-name">{`${currentData.user.firstName}${' '}${currentData.user.lastName}`}</h5>
             </div>
             <div className='profile-middle'>
                 <p>Location: <span >New South Wates</span></p>

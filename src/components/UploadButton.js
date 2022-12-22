@@ -26,7 +26,6 @@ function UploadButton() {
                 className="d-none"
                 type="file"
             />
-
         </div>
     );
 }
