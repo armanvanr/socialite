@@ -7,9 +7,10 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Avatar from "react-avatar";
+import { useSelector } from "react-redux";
 
 const PostList = ({ data }) => {
-
+    const { user: currentUser } = useSelector(state => state.auth);
     //Delete alert
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -25,8 +26,16 @@ const PostList = ({ data }) => {
                             <h6 className="m-2 d-inline-block" >{`${post.firstName}${' '}${post.lastName}`}</h6>
                         </div>
                         <DropdownButton id="dropdown-toggle" className="btn" size="sm" variant="secondary" title={<ThreeDots />}>
-                            <Dropdown.Item href="#/action-1">Follow</Dropdown.Item>
-                            <Dropdown.Item onClick={handleShow}>Delete</Dropdown.Item>
+                            {(currentUser.user.userId === post.userId) ?
+                                (<>
+                                    <Dropdown.Item href="#/action-1">Follow</Dropdown.Item>
+                                    <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
+                                    <Dropdown.Item onClick={handleShow}>Delete</Dropdown.Item>
+                                </>)
+                                : (
+                                    <Dropdown.Item href="#/action-1">Follow</Dropdown.Item>
+                                )}
+
                             <Modal show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Do you want to delete this post? </Modal.Title>

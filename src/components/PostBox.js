@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Avatar from "react-avatar";
 import UploadButton from "./UploadButton";
 import './PostBox.css'
@@ -25,10 +25,6 @@ const PostBox = () => {
     };
 
     //file upload
-    const [imageEncode, setImageEncode] = useState({
-        file: null,
-        base64URL: ""
-    });
     const getBase64 = file => {
         return new Promise(resolve => {
             let baseURL = "";
@@ -41,33 +37,21 @@ const PostBox = () => {
             };
         });
     };
+
     const handleFileInputChange = e => {
-        let { file } = imageEncode;
-        file = e.target.files[0];
+        let file = e.target.files[0];
         getBase64(file).then(result => {
-            file["base64"] = result;
-            console.log("File Is", file);
-            setImageEncode({
-                base64URL: result,
-                file
-            });
+            setImage(result);
         }).catch(err => {
             console.error(err);
         });
 
-        setImageEncode({
-            file: e.target.files[0]
-        });
-        setImage(imageEncode.base64URL);
-        console.log('base64', imageEncode.base64URL)
-        // console.log('imageEncode', imageEncode)
-        console.log('image', image);
     };
 
     //submit button handler
     const postHandler = () => {
         dispatch(addPost(content, image, userId));
-        // console.log('encode posthandler', image)
+        console.log('image in Handler : ', image)
         setCharAllowed(charNum);
         setContent('');
     };

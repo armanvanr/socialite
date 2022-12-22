@@ -4,6 +4,7 @@ import { CREATE_POST_SUCCESS, CREATE_POST_FAIL, SET_MESSAGE, FETCH_POSTS } from 
 
 
 export const addPost = (content, image, userId) => dispatch => {
+    console.log('image in actions : ', image)
     return postService.createPost(content, image, userId).then(
         data => {
             dispatch({

@@ -14,6 +14,10 @@ const getPosts = () => {
     return axios.get(`${API_URL}/posts`);
 }
 
+const removePost = id => {
+    return axios.delete(`/posts/${id}`);
+};
+
 const postService = {
     createPost,
     getPosts
