@@ -8,9 +8,11 @@ import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
+import PostDetail from './components/PostDetail'
 import Profile from './components/Profile';
 
 import { clearMessage } from './redux/actions/message';
+import { PostcardHeartFill } from 'react-bootstrap-icons/dist';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/posts/:postId" element={<PostDetail />} />
         </Routes>
     </div>
   );
