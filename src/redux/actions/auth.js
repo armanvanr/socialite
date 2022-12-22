@@ -7,10 +7,10 @@ import {
     SET_MESSAGE,
 } from './types';
 
-import AuthService from '../../services/auth';
+import authService from '../../services/auth';
 
 export const register = (firstName, lastName, email, password) => dispatch => {
-    return AuthService.register(firstName, lastName, email, password).then(
+    return authService.register(firstName, lastName, email, password).then(
         response => {
             dispatch({
                 type: REGISTER_SUCCESS,
@@ -20,7 +20,7 @@ export const register = (firstName, lastName, email, password) => dispatch => {
                 type: SET_MESSAGE,
                 payload: response.data.message,
             });
-
+            // console.log('Thunk payload message:', payload);
             return Promise.resolve();
         },
         error => {
@@ -42,7 +42,7 @@ export const register = (firstName, lastName, email, password) => dispatch => {
 };
 
 export const login = (email, password) => dispatch => {
-    return AuthService.login(email, password).then(
+    return authService.login(email, password).then(
         data => {
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -69,8 +69,8 @@ export const login = (email, password) => dispatch => {
 };
 
 export const logout = () => dispatch => {
-    AuthService.logout();
-    
+    authService.logout();
+
     dispatch({
         type: LOGOUT,
     });

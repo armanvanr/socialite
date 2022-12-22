@@ -1,0 +1,28 @@
+.post-box {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.input-form-group {
+    display: flex;
+    padding: 10px 10px;
+}
+
+.input-form-group>textarea {
+    height: 90px;
+    margin: 0px 10px;
+    border-radius: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#image-upload {
+    font-size: 25px;
+    background-color: white;
+}
