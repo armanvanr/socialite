@@ -59,9 +59,9 @@ const PostBox = () => {
             file: e.target.files[0]
         });
         setImage(imageEncode.base64URL);
-        // console.log('base64', imageEncode.base64URL)
+        console.log('base64', imageEncode.base64URL)
         // console.log('imageEncode', imageEncode)
-        // console.log('image', image);
+        console.log('image', image);
     };
 
     //submit button handler

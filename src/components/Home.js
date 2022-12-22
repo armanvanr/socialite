@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import './Home.css';
 import UserProfileCard from './ProfileCard';
@@ -7,54 +7,67 @@ import PostBox from './PostBox';
 import PostList from './PostList';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import postService from '../services/post';
 
 const Home = () => {
     const { user: currentUser } = useSelector(state => state.auth);
+    const [posts, setPosts] = useState([]);
+    
+    const getAllPosts = async () => {
+        const res = await postService.getPosts();
+        setPosts(res.data.posts);
+    }
+
+    useEffect(() => {
+        getAllPosts();
+    })
+
     if (!currentUser) {
         return <Navigate to="/login" />
     }
-    const posts = [
-        {
-            firstName: "Pai",
-            lastName: "Ijo",
-            content: "What I highly recommended is creating hobbies together and exploring new things together. When life becomes dull and has become a stalemate routine then this affects communication. Take a trip to the theaters for example. After the movie people usually proceed to have a discussion about it afterwards. Couples need to have new experiences and constantly push themselves out of that same day to day routine, or else that routine will slowly kill the relationship one step at a time. When life becomes dull and has become a stalemate routine then this affects communication. Take a trip to the theaters for example. After the movie people usually proceed to have a discussion about it afterwards. Couples need to have new experiences and constantly push themselves out of that same day to day routine, or else that routine will slowly kill the relationship one step at a time.",
-            image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
-            likes: 1,
-            comments: 5
-        },
-        {
-            firstName: "Pai",
-            lastName: "Ijo",
-            content: "What I highly recommended is creating hobbies together and exploring new things together. When life becomes dull and has become a stalemate routine then this affects communication. Take a trip to the theaters for example. After the movie people usually proceed to have a",
-            image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
-            likes: 1,
-            comments: 5
-        },
-        {
-            firstName: "Pai",
-            lastName: "Ijo",
-            content: "Konten lorem ipsum dolor",
-            image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
-            likes: 1,
-            comments: 5
-        },
-        {
-            firstName: "Pai",
-            lastName: "Ijo",
-            content: "Konten lorem ipsum dolor",
-            image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
-            likes: 1,
-            comments: 5
-        },
-        {
-            firstName: "Pai",
-            lastName: "Ijo",
-            content: "Konten lorem ipsum dolor",
-            image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
-            likes: 1,
-            comments: 5
-        },
-    ];
+
+    // const posts = [
+    //     {
+    //         firstName: "Hazel",
+    //         lastName: "Nut",
+    //         content: "What I highly recommended is creating hobbies together and exploring new things together. When life becomes dull and has become a stalemate routine then this affects communication. Take a trip to the theaters for example. After the movie people usually proceed to have a discussion about it afterwards. Couples need to have new experiences and constantly push themselves out of that same day to day routine, or else that routine will slowly kill the relationship one step at a time. When life becomes dull and has become a stalemate routine then this affects communication. Take a trip to the theaters for example. After the movie people usually proceed to have a discussion about it afterwards. Couples need to have new experiences and constantly push themselves out of that same day to day routine, or else that routine will slowly kill the relationship one step at a time.",
+    //         image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
+    //         likes: 1,
+    //         comments: 5
+    //     },
+    //     {
+    //         firstName: "Choco",
+    //         lastName: "Melon",
+    //         content: "What I highly recommended is creating hobbies together and exploring new things together. When life becomes dull and has become a stalemate routine then this affects communication. Take a trip to the theaters for example. After the movie people usually proceed to have a",
+    //         image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
+    //         likes: 1,
+    //         comments: 5
+    //     },
+    //     {
+    //         firstName: "Brown",
+    //         lastName: "Sugar",
+    //         content: "Konten lorem ipsum dolor",
+    //         image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
+    //         likes: 1,
+    //         comments: 5
+    //     },
+    //     {
+    //         firstName: "Red",
+    //         lastName: "Velvet",
+    //         content: "Konten lorem ipsum dolor",
+    //         image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
+    //         likes: 1,
+    //         comments: 5
+    //     },
+    //     {
+    //         firstName: "Moss",
+    //         lastName: "Head",
+    //         content: "Konten lorem ipsum dolor",
+    //         image: "https://akcdn.detik.net.id/visual/2022/12/13/meme-kaesang-nikah_169.jpeg?w=700&q=90",
+    //         likes: 1,
+    //         comments: 5
+    //     },
+    // ];
 
     return (
         <div>

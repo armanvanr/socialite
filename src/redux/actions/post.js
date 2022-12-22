@@ -1,9 +1,9 @@
 import postService from "../../services/post";
 
-import { CREATE_POST_SUCCESS, CREATE_POST_FAIL, SET_MESSAGE } from "./types";
+import { CREATE_POST_SUCCESS, CREATE_POST_FAIL, SET_MESSAGE, FETCH_POSTS } from "./types";
+
 
 export const addPost = (content, image, userId) => dispatch => {
-    // console.log('axios post', content, image, userId)
     return postService.createPost(content, image, userId).then(
         data => {
             dispatch({
@@ -28,4 +28,17 @@ export const addPost = (content, image, userId) => dispatch => {
             return Promise.reject();
         },
     );
+};
+
+export const fetchPosts = () => async dispatch => {
+    try {
+        const res = await postService.getPosts();
+        console.log('res', res.data)
+        dispatch({
+            type: FETCH_POSTS,
+            payload: res.data,
+        });
+    } catch (err) {
+        console.log(err);
+    };
 };

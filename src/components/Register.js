@@ -57,7 +57,7 @@ const Register = () => {
                     <div>
                         {!success && (
                             <div>
-                                <img src="logo2.png" alt="" textAlign="center" width={180} />
+                                <img src="logo2.png" alt="" width={180} />
                                 <div className="form-group">
                                     <label htmlFor="firstName">First Name</label>
                                     <input

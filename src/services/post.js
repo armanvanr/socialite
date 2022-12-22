@@ -10,8 +10,13 @@ const createPost = (content, image, userId) => {
     });
 };
 
+const getPosts = () => {
+    return axios.get(`${API_URL}/posts`);
+}
+
 const postService = {
     createPost,
+    getPosts
 };
 
 export default postService;

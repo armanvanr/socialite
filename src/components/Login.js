@@ -48,7 +48,7 @@ const Login = () => {
             <div className="col-md-12">
                 <div id="cardContainer" className="card card-container">
                     <div>
-                        <img src="logo2.png" alt="" textAlign="center" width={180} />
+                        <img src="logo2.png" alt="" width={180} />
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
                             <input
